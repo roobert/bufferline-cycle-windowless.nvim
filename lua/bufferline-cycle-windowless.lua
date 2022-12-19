@@ -4,6 +4,7 @@ local utils = require("bufferline.utils")
 
 local M = {}
 
+-- taken from: https://github.com/akinsho/bufferline.nvim/blob/main/lua/bufferline/commands.lua
 --- open the current element
 ---@param id number
 local function open_element(id)
