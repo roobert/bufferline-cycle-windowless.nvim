@@ -1,5 +1,6 @@
 local state = require("bufferline.state")
 local config = require("bufferline.config")
+local utils = require("bufferline.utils")
 
 local M = {}
 
@@ -17,7 +18,7 @@ function M.cycle_hidden(direction)
 	local item = M.next_visible_buffer(direction)
 
 	if item == nil then
-		return require("bufferline.utils").notify(string.format("This %s does not exist", item), "error")
+		return utils.notify(string.format("This %s does not exist", item), "error")
 	end
 
 	open_element(item.id)
