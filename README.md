@@ -98,7 +98,6 @@ lvim.builtin.bufferline = {
   },
 
   buffer_selected = {
-   --fg = "#bae1ff",
    fg = "#eeeeee",
    bold = false,
   },
