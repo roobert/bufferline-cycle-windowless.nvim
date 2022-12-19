@@ -99,9 +99,9 @@ local function setup_commands()
 end
 
 function M.setup(opts)
-	opts = opts or { default_enabled = true }
+	opts = opts or {}
 
-	-- if empty/missing options were passed..
+	-- default to enabled
 	if opts.default_enabled == nil then
 		opts.default_enabled = true
 	end
