@@ -2,7 +2,7 @@
 
 ![Untitled](https://user-images.githubusercontent.com/226654/208321256-c7c8e1cc-620e-4c67-bf08-7bb793f8c9ff.gif)
 
-A bufferline extension to cycle through windowless buffers.
+A [bufferline](https://github.com/akinsho/bufferline.nvim) extension to cycle through windowless buffers.
 
 ## Usage
 
