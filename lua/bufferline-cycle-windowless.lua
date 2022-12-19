@@ -2,6 +2,7 @@ local state = require("bufferline.state")
 local config = require("bufferline.config")
 
 local M = {}
+local State = {}
 
 -- taken from: https://github.com/akinsho/bufferline.nvim/blob/main/lua/bufferline/commands.lua
 --- open the current element
@@ -71,15 +72,42 @@ local function setup_commands()
 	local cmd = vim.api.nvim_create_user_command
 
 	cmd("BufferLineCycleWindowlessNext", function()
-		M.cycle_hidden(1)
+		if State.enabled then
+			M.cycle_hidden(1)
+		else
+			require("bufferline.commands").cycle(1)
+		end
 	end, {})
 
 	cmd("BufferLineCycleWindowlessPrev", function()
-		M.cycle_hidden(-1)
+		if State.enabled then
+			M.cycle_hidden(-1)
+		else
+			require("bufferline.commands").cycle(-1)
+		end
+	end, {})
+
+	cmd("BufferLineCycleWindowlessToggle", function()
+		if State.enabled then
+			State.enabled = false
+			print("bufferline: cycle through all buffers")
+		else
+			State.enabled = true
+			print("bufferline: cycle through windowless buffers")
+		end
 	end, {})
 end
 
-function M.setup()
+function M.setup(opts)
+	opts = opts or { default_enabled = true }
+
+	-- if empty/missing options were passed..
+	if opts.default_enabled == nil then
+		opts.default_enabled = true
+	end
+
+	State.enabled = opts.default_enabled
+
 	setup_commands()
 end
 

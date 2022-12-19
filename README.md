@@ -15,7 +15,10 @@ use {
    { "akinsho/bufferline.nvim" },
   },
   setup = function()
-   require("bufferline-cycle-windowless").setup()
+   require("bufferline-cycle-windowless").setup({
+     -- whether to start in enabled or disabled mode
+     default_enabled = true,
+   })
   end,
 }
 ```
@@ -26,6 +29,8 @@ use {
 vim.api.nvim_set_keymap("n", "[b", "<CMD>BufferLineCycleWindowlessNext<CR>",
     { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "]b", "<CMD>BufferLineCycleWindowlessPrev<CR>",
+    { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-t>", "<CMD>BufferLineCycleWindowlessToggle<CR>",
     { noremap = true, silent = true })
 ```
 
@@ -62,4 +67,5 @@ end
 -- switch through visible buffers with shift-l/h
 lvim.keys.normal_mode["<S-l>"] = "<CMD>lua ChangeTab('next')<CR>"
 lvim.keys.normal_mode["<S-h>"] = "<CMD>lua ChangeTab('prev')<CR>"
+lvim.keys.normal_mode["<S-t>"] = "<CMD>BufferLineCycleWindowlessToggle<CR>"
 ```
