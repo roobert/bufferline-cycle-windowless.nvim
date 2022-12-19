@@ -7,6 +7,7 @@ A [bufferline](https://github.com/akinsho/bufferline.nvim) extension to cycle th
 ## Motivation
 
 Neovims default tab-window-buffer model allows viewing open buffers in multiple windows.
+
 This plugin helps give a more traditional behaviour for tabs by configuring the ability to skip past
 buffers that are already open in an existing window. The behaviour is toggleable and
 configurable to be on or off by default.
