@@ -77,17 +77,36 @@ lvim.builtin.bufferline = {
  },
  highlights = {
   fill = {
-   bg = "#2d476e",
+   bg = "#252d52",
   },
+
   separator_selected = {
-   fg = "#2d476e",
+   fg = "#252d52",
   },
+
   separator_visible = {
-   fg = "#2d476e",
+   fg = "#252d52",
   },
+
   separator = {
-   fg = "#2d476e",
+   fg = "#252d52",
+  },
+
+  buffer_visible = {
+   fg = "#9696ca",
+   bold = false,
+  },
+
+  buffer_selected = {
+   --fg = "#bae1ff",
+   fg = "#eeeeee",
+   bold = false,
+  },
+
+  tab_selected = {
+   bold = false,
   },
  },
 }
+
 ```
