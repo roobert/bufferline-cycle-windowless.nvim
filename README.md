@@ -68,4 +68,26 @@ end
 lvim.keys.normal_mode["<S-l>"] = "<CMD>lua ChangeTab('next')<CR>"
 lvim.keys.normal_mode["<S-h>"] = "<CMD>lua ChangeTab('prev')<CR>"
 lvim.keys.normal_mode["<S-t>"] = "<CMD>BufferLineCycleWindowlessToggle<CR>"
+
+-- lighten up bufferline background
+lvim.builtin.bufferline = {
+ active = true,
+ options = {
+  separator_style = "slant",
+ },
+ highlights = {
+  fill = {
+   bg = "#2d476e",
+  },
+  separator_selected = {
+   fg = "#2d476e",
+  },
+  separator_visible = {
+   fg = "#2d476e",
+  },
+  separator = {
+   fg = "#2d476e",
+  },
+ },
+}
 ```
