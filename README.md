@@ -1,6 +1,6 @@
 # Bufferline Cycle Windowless
 
-![Untitled](https://user-images.githubusercontent.com/226654/208321256-c7c8e1cc-620e-4c67-bf08-7bb793f8c9ff.gif)
+![Screenshot](https://user-images.githubusercontent.com/226654/208528189-10984843-96cc-4e86-bcfe-efa5b4b13707.gif)
 
 A [bufferline](https://github.com/akinsho/bufferline.nvim) extension to cycle through windowless buffers.
 
