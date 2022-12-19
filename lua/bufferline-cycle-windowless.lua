@@ -98,15 +98,14 @@ local function setup_commands()
 	end, {})
 end
 
-function M.setup(opts)
-	opts = opts or {}
-
-	-- default to enabled
-	if opts.default_enabled == nil then
-		opts.default_enabled = true
+function M.setup(config)
+	-- default to enabled if either an empty, or no config is passed in
+	config = config or {}
+	if config.default_enabled == nil then
+		config.default_enabled = true
 	end
 
-	State.enabled = opts.default_enabled
+	State.enabled = config.default_enabled
 
 	setup_commands()
 end
