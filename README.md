@@ -31,9 +31,11 @@ use {
 }
 ```
 
-### Binding
+### Simple Configuration
 
-```
+#### Standard Neovim
+
+``` lua
 vim.api.nvim_set_keymap("n", "[b", "<CMD>BufferLineCycleWindowlessNext<CR>",
     { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "]b", "<CMD>BufferLineCycleWindowlessPrev<CR>",
@@ -42,11 +44,91 @@ vim.api.nvim_set_keymap("n", "<S-t>", "<CMD>BufferLineCycleWindowlessToggle<CR>"
     { noremap = true, silent = true })
 ```
 
+#### Lunarvim
+
+``` lua
+lvim.keys.normal_mode["<S-l>"] = "<CMD>lua ChangeTab('next')<CR>"
+lvim.keys.normal_mode["<S-h>"] = "<CMD>lua ChangeTab('prev')<CR>"
+lvim.keys.normal_mode["<S-t>"] = "<CMD>BufferLineCycleWindowlessToggle<CR>"
+```
+
 ### Advanced Usage Example
 
 I prefer empty splits that get cleaned up as I cycle through open buffers.
 
-This config uses [LunarVim](https://github.com/lunarvim/lunarvim)
+#### Standard Neovim
+
+``` lua
+-- open empty splits
+vim.api.nvim_set_keymap("n", "<leader>|", "<CMD>vsplit +enew<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>_", "<CMD>split +enew<CR>", {})
+
+-- since we open empty splits - clean them up as we cycle through open buffers
+function ChangeTab(motion)
+ local last_buffer_id = vim.fn.bufnr()
+ local last_buffer_name = vim.fn.expand("%")
+
+ if motion == "next" then
+  vim.cmd([[BufferLineCycleWindowlessNext]])
+ elseif motion == "prev" then
+  vim.cmd([[BufferLineCycleWindowlessPrev]])
+ else
+  error("Invalid motion: " .. motion)
+  return
+ end
+
+ if last_buffer_name == "" then
+  vim.cmd("bd " .. last_buffer_id)
+ end
+end
+
+-- switch through visible buffers with shift-l/h
+vim.api.nvim_set_keymap("n", "<S-l>", "<CMD>lua ChangeTab('next')<CR>", {})
+vim.api.nvim_set_keymap("n", "<S-h>", "<CMD>lua ChangeTab('prev')<CR>", {})
+vim.api.nvim_set_keymap("n", "<S-t>", "<CMD>BufferLineCycleWindowlessToggle<CR>", {})
+
+-- lighten up bufferline background
+lvim.builtin.bufferline = {
+ active = true,
+ options = {
+  separator_style = "slant",
+ },
+ highlights = {
+  fill = {
+   bg = "#252d52",
+  },
+
+  separator_selected = {
+   fg = "#252d52",
+  },
+
+  separator_visible = {
+   fg = "#252d52",
+  },
+
+  separator = {
+   fg = "#252d52",
+  },
+
+  buffer_visible = {
+   fg = "#9696ca",
+   bold = false,
+  },
+
+  buffer_selected = {
+   fg = "#eeeeee",
+   bold = false,
+  },
+
+  tab_selected = {
+   bold = false,
+  },
+ },
+}
+
+```
+
+#### Lunarvim
 
 ``` lua
 -- open empty splits
