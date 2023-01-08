@@ -17,18 +17,17 @@ configurable to be on or off by default.
 ### Lazy
 
 ```lua
-use {
+ {
   "roobert/bufferline-cycle-windowless.nvim",
-  requires = {
+  dependencies = {
    { "akinsho/bufferline.nvim" },
   },
-  setup = function()
+  config = function()
    require("bufferline-cycle-windowless").setup({
-     -- whether to start in enabled or disabled mode
-     default_enabled = true,
+    default_enabled = true,
    })
   end,
-}
+ },
 ```
 
 ### Packer
