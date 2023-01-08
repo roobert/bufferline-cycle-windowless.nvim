@@ -12,7 +12,24 @@ This plugin helps give a more traditional behaviour for tabs by configuring the 
 buffers that are already open in an existing window. The behaviour is toggleable and
 configurable to be on or off by default.
 
-## :rocket: Usage
+## :Rocket: Installation
+
+### Lazy
+
+```lua
+use {
+  "roobert/bufferline-cycle-windowless.nvim",
+  requires = {
+   { "akinsho/bufferline.nvim" },
+  },
+  setup = function()
+   require("bufferline-cycle-windowless").setup({
+     -- whether to start in enabled or disabled mode
+     default_enabled = true,
+   })
+  end,
+}
+```
 
 ### Packer
 
@@ -31,7 +48,9 @@ use {
 }
 ```
 
-### Simple Configuration
+## :gear: Usage
+
+### Simple Example
 
 #### Standard Neovim
 
@@ -52,7 +71,7 @@ lvim.keys.normal_mode["<S-h>"] = "<CMD>BufferLineCycleWindowlessPrev<CR>"
 lvim.keys.normal_mode["<S-t>"] = "<CMD>BufferLineCycleWindowlessToggle<CR>"
 ```
 
-### Advanced Usage Example
+### Advanced Example
 
 I prefer empty splits that get cleaned up as I cycle through open buffers.
 
