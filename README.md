@@ -47,7 +47,7 @@ use {
 }
 ```
 
-## :gear: Usage
+## :hammer_and_wrench: Usage
 
 ### Simple Example
 
