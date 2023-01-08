@@ -1,10 +1,10 @@
-# Bufferline Cycle Windowless
+# :window: Bufferline Cycle Windowless
 
 ![Screenshot](https://user-images.githubusercontent.com/226654/208528189-10984843-96cc-4e86-bcfe-efa5b4b13707.gif)
 
 A [bufferline](https://github.com/akinsho/bufferline.nvim) extension to cycle through windowless buffers.
 
-## Motivation
+## :zap: Motivation
 
 Neovims default tab-window-buffer model allows viewing open buffers in multiple windows.
 
@@ -12,7 +12,7 @@ This plugin helps give a more traditional behaviour for tabs by configuring the 
 buffers that are already open in an existing window. The behaviour is toggleable and
 configurable to be on or off by default.
 
-## Usage
+## :rocket: Usage
 
 ### Packer
 
