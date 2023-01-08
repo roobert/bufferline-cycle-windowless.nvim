@@ -36,9 +36,9 @@ use {
 #### Standard Neovim
 
 ``` lua
-vim.api.nvim_set_keymap("n", "[b", "<CMD>BufferLineCycleWindowlessNext<CR>",
+vim.api.nvim_set_keymap("n", "<S-l>", "<CMD>BufferLineCycleWindowlessNext<CR>",
     { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "]b", "<CMD>BufferLineCycleWindowlessPrev<CR>",
+vim.api.nvim_set_keymap("n", "<S-h>", "<CMD>BufferLineCycleWindowlessPrev<CR>",
     { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-t>", "<CMD>BufferLineCycleWindowlessToggle<CR>",
     { noremap = true, silent = true })
@@ -47,8 +47,8 @@ vim.api.nvim_set_keymap("n", "<S-t>", "<CMD>BufferLineCycleWindowlessToggle<CR>"
 #### Lunarvim
 
 ``` lua
-lvim.keys.normal_mode["<S-l>"] = "<CMD>lua ChangeTab('next')<CR>"
-lvim.keys.normal_mode["<S-h>"] = "<CMD>lua ChangeTab('prev')<CR>"
+lvim.keys.normal_mode["<S-l>"] = "<CMD>BufferLineCycleWindowlessNext<CR>"
+lvim.keys.normal_mode["<S-h>"] = "<CMD>BufferLineCycleWindowlessPrev<CR>"
 lvim.keys.normal_mode["<S-t>"] = "<CMD>BufferLineCycleWindowlessToggle<CR>"
 ```
 
