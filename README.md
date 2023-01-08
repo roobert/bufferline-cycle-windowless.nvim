@@ -73,7 +73,7 @@ lvim.keys.normal_mode["<S-t>"] = "<CMD>BufferLineCycleWindowlessToggle<CR>"
 
 ### Advanced Example
 
-This example firstly creates empty splits rather than splits with a view of the current file, and secondly, when cycling through buffers occurs it will clean up the `[no file]` buffers.
+This example firstly creates empty splits rather than splits with a view of the current file, and secondly, when cycling through buffers occurs it will delete the `[no file]` buffers, removing them from the buffer list / bufferline.
 
 #### Standard Neovim
 
