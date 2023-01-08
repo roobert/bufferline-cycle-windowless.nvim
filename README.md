@@ -12,7 +12,7 @@ This plugin helps give a more traditional behaviour for tabs by configuring the 
 buffers that are already open in an existing window. The behaviour is toggleable and
 configurable to be on or off by default.
 
-## :Rocket: Installation
+## :rocket: Installation
 
 ### Lazy
 
